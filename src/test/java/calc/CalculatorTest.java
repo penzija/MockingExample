@@ -15,7 +15,15 @@ class CalculatorTest {
     }
 
     @Test
-    void sumManyNumbers() {
+    void noTextInserted() {
+        Calculator calc = new Calculator();
+        int actualSum = calc.add("");
+
+        assertEquals(0, actualSum);
+    }
+
+    @Test
+    void sumOfManyNumbers() {
         Calculator calculator = new Calculator();
         int actualSum = calculator.add("2,1,7,5");
 
@@ -37,6 +45,15 @@ class CalculatorTest {
         int actualSum = calculator.add("2\n4 7,5");
 
         assertEquals(18, actualSum);
+    }
+
+    @Test
+    void inputWithManyNonNumbersOnBeginning() {
+        Calculator calculator = new Calculator();
+
+        int actualSum = calculator.add("3,//&%$#&$\n4 7;5");
+
+        assertEquals(19, actualSum);
     }
 
 

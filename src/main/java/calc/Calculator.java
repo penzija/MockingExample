@@ -3,7 +3,19 @@ package calc;
 public class Calculator {
 
     public int add(String numbers) {
-        String[] arrayStringNumbers = numbers.split("[, \n]");
+        if (numbers.isBlank()) {
+            return 0;
+        }
+
+        if (numbers.contains("//")) {
+            String delimiter = numbers.substring(numbers.indexOf("/"), numbers.indexOf("\n") + 1);
+            String removedExtraText = numbers.replace(delimiter, "");
+            numbers = removedExtraText;
+        }
+
+        //System.out.println(numbers);
+
+        String[] arrayStringNumbers = numbers.split("[, \n;]");
         int[] arrayConvertedNumbers = new int[arrayStringNumbers.length];
         int sum = 0;
 
@@ -15,11 +27,12 @@ public class Calculator {
             sum = sum + arrayConvertedNumbers[i];
         }
         return sum;
+
     }
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        System.out.println(calculator.add("8,7 3\n5"));
+        System.out.println(calculator.add("2\n4 7,5"));
     }
 
 
