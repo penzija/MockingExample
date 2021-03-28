@@ -2,6 +2,8 @@ package calc;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.IllegalFormatException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
@@ -54,6 +56,14 @@ class CalculatorTest {
         int actualSum = calculator.add("3,//&%$#&$\n4 7;5");
 
         assertEquals(19, actualSum);
+    }
+
+    @Test
+    void exceptionOnNegativeNumber() {
+        Calculator calculator = new Calculator();
+
+        assertThrows(IllegalArgumentException.class, () -> calculator.add("-1,3"));
+
     }
 
 

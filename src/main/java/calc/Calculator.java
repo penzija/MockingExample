@@ -24,6 +24,13 @@ public class Calculator {
         }
 
         for (int i = 0; i < arrayConvertedNumbers.length; i++) {
+            if (arrayConvertedNumbers[i] < 0) {
+                throw new IllegalArgumentException("Negative numbers not allowed: (" + arrayConvertedNumbers[i] + ")");
+            }
+
+        }
+
+        for (int i = 0; i < arrayConvertedNumbers.length; i++) {
             sum = sum + arrayConvertedNumbers[i];
         }
         return sum;
@@ -32,8 +39,6 @@ public class Calculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        System.out.println(calculator.add("2\n4 7,5"));
+        System.out.println(calculator.add("2\n4 -7,5"));
     }
-
-
 }
