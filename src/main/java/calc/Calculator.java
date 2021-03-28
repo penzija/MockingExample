@@ -8,13 +8,12 @@ public class Calculator {
         }
 
         if (numbers.contains("//")) {
-            String delimiter = numbers.substring(numbers.indexOf("/"), numbers.indexOf("\n") + 1);
+            String delimiter = numbers.substring(numbers.indexOf("//"), numbers.indexOf("\n") + 1);
             numbers = numbers.replace(delimiter, "");
         }
 
-        //System.out.println(numbers);
+        String[] arrayStringNumbers = numbers.split("[, \n;%*\\[\\]]+");
 
-        String[] arrayStringNumbers = numbers.split("[, \n;]");
         int[] arrayConvertedNumbers = new int[arrayStringNumbers.length];
         int sum = 0;
 
@@ -43,6 +42,6 @@ public class Calculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        System.out.println(calculator.add("2\n,4 7,5"));
+        System.out.println(calculator.add("//[***]\n1***2***3"));
     }
 }

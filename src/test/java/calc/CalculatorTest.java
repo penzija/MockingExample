@@ -2,9 +2,8 @@ package calc;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.IllegalFormatException;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorTest {
 
@@ -72,5 +71,23 @@ class CalculatorTest {
         int actualSum = calculator.add("1001,//&%$#&$\n4 7;5");
 
         assertEquals(16, actualSum);
+    }
+
+    @Test
+    void testOneDelimiter() {
+        Calculator calculator = new Calculator();
+
+        int actualSum = calculator.add("//[***]\n1***2***3");
+
+        assertEquals(6, actualSum);
+    }
+
+    @Test
+    void testMultipleDelimiters() {
+        Calculator calculator = new Calculator();
+
+        int actualSum = calculator.add("//[*][%]\n1*2%3");
+
+        assertEquals(6, actualSum);
     }
 }
