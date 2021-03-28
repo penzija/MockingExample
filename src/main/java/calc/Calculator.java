@@ -9,8 +9,7 @@ public class Calculator {
 
         if (numbers.contains("//")) {
             String delimiter = numbers.substring(numbers.indexOf("/"), numbers.indexOf("\n") + 1);
-            String removedExtraText = numbers.replace(delimiter, "");
-            numbers = removedExtraText;
+            numbers = numbers.replace(delimiter, "");
         }
 
         //System.out.println(numbers);
@@ -27,7 +26,12 @@ public class Calculator {
             if (arrayConvertedNumbers[i] < 0) {
                 throw new IllegalArgumentException("Negative numbers not allowed: (" + arrayConvertedNumbers[i] + ")");
             }
+        }
 
+        for (int i = 0; i < arrayConvertedNumbers.length; i++) {
+            if (arrayConvertedNumbers[i] > 1000) {
+                arrayConvertedNumbers[i] = 0;
+            }
         }
 
         for (int i = 0; i < arrayConvertedNumbers.length; i++) {
@@ -39,6 +43,6 @@ public class Calculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        System.out.println(calculator.add("2\n4 -7,5"));
+        System.out.println(calculator.add("2\n,4 7,5"));
     }
 }

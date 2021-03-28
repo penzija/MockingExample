@@ -63,8 +63,14 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
 
         assertThrows(IllegalArgumentException.class, () -> calculator.add("-1,3"));
-
     }
 
+    @Test
+    void inputNumberBiggerThan1000() {
+        Calculator calculator = new Calculator();
 
+        int actualSum = calculator.add("1001,//&%$#&$\n4 7;5");
+
+        assertEquals(16, actualSum);
+    }
 }
