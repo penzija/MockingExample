@@ -3,8 +3,7 @@ package calc;
 public class Calculator {
 
     public int add(String numbers) {
-
-        String[] arrayStringNumbers = numbers.split(",");
+        String[] arrayStringNumbers = numbers.split("[, \n]");
         int[] arrayConvertedNumbers = new int[arrayStringNumbers.length];
         int sum = 0;
 
@@ -14,14 +13,13 @@ public class Calculator {
 
         for (int i = 0; i < arrayConvertedNumbers.length; i++) {
             sum = sum + arrayConvertedNumbers[i];
-
         }
         return sum;
     }
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        System.out.println(calculator.add("1,7,3"));
+        System.out.println(calculator.add("8,7 3\n5"));
     }
 
 
