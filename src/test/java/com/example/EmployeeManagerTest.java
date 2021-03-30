@@ -2,19 +2,33 @@ package com.example;
 
 import org.junit.jupiter.api.*;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import static org.mockito.Mockito.*;
 
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.LinkedList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class EmployeeManagerTest {
 
+    @Test
+    void checkIf_PayAllMethod_IsFillingCorrectly() {
 
-    public static void main(String[] args) {
-        LinkedList mockedList = mock(LinkedList.class);
-        when(mockedList.get(0)).thenReturn("This list does not really exist");
-        System.out.println(mockedList.get(0));
+        EmployeeRepository employeeRepository = new TestEmployeeRepository();
+        BankService bankService = new TestBankService();
+        EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
+
+        var actual = employeeManager.payEmployees();
+
+        assertEquals(2, actual);
     }
+
 }

@@ -1,6 +1,10 @@
 package com.example;
 
+import java.util.LinkedList;
 import java.util.List;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class EmployeeManager {
 
@@ -25,5 +29,11 @@ public class EmployeeManager {
             }
         }
         return payments;
+    }
+
+    public static void main(String[] args) {
+        LinkedList mockedList = mock(LinkedList.class);
+        when(mockedList.get(0)).thenReturn("This list does not really exist");
+        System.out.println(mockedList.get(0));
     }
 }
