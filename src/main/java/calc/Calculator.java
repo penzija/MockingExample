@@ -3,7 +3,7 @@ package calc;
 public class Calculator {
 
     public int add(String numbers) {
-        if (numbers.isBlank()) {
+        if (numbers.isEmpty()) {
             return 0;
         }
 
