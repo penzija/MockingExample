@@ -3,7 +3,7 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepositoryIT implements EmployeeRepository {
+public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     private static  List<Employee> employees = new ArrayList<>();
 
@@ -20,16 +20,14 @@ public class EmployeeRepositoryIT implements EmployeeRepository {
 
     @Override
     public List<Employee> findAll() {
+
         return employees;
     }
 
     @Override
     public Employee save(Employee e) {
-        for (Employee employee : employees) {
-            if (employee.getId().equals(e.getId())) {
-                employee.setSalary(employee.getSalary());
-            }
-        }
+        e.setId("emp5");
+        e.setSalary(5);
         return e;
     }
 }
