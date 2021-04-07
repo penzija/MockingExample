@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeRepositoryTest {
-    private final EmployeeRepository employeeRepository = new EmployeeRepositoryIT();
+
+    private  EmployeeRepository employeeRepository = new EmployeeRepositoryIT();
 
     @Test
     public void findAll() {
