@@ -13,8 +13,8 @@ class EmployeeManagerTest {
     @Test
     void checkIf_PayAllMethod_IsFillingCorrectly() {
 
-        EmployeeRepository employeeRepository = new TestEmployeeRepository();
-        BankService bankService = new TestBankService();
+        EmployeeRepository employeeRepository = new EmployeeRepositoryStub();
+        BankService bankService = new BankServiceStub();
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
 
         var actual = employeeManager.payEmployees();
