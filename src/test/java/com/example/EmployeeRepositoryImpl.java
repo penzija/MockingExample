@@ -3,7 +3,7 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepositoryTest implements EmployeeRepository {
+public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     public static ArrayList<Employee> employees;
 
