@@ -5,10 +5,9 @@ import java.util.List;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
-    public static ArrayList<Employee> employees;
-
     @Override
     public List<Employee> findAll() {
+        ArrayList<Employee> employees = new ArrayList<>();
         employees.add(new Employee("test", 0));
         employees.add(new Employee("luka", 15000));
         return employees;

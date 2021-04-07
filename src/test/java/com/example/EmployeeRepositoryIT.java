@@ -9,9 +9,6 @@ import java.util.List;
 
 public class EmployeeRepositoryIT {
 
-
-    Employee newValue = new Employee("2", 22000);
-
     @Test
     void integrationTest1_CheckFindAllMethod() {
         EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
