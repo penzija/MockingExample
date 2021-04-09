@@ -1,6 +1,8 @@
 package com.example;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
+
+
 
     private String id;
     private double salary;
@@ -38,5 +40,10 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee [id=" + id + ", salary=" + salary + "]";
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return o.id.compareTo(this.id);
     }
 }
