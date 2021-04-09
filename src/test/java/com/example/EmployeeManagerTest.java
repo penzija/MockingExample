@@ -11,18 +11,6 @@ import static org.mockito.Mockito.when;
 class EmployeeManagerTest {
 
     @Test
-    void checkIf_PayAllMethod_IsFillingCorrectly() {
-
-        EmployeeRepository employeeRepository = new EmployeeRepositoryStub();
-        BankService bankService = new BankServiceStub();
-        EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
-
-        var actual = employeeManager.payEmployees();
-
-        assertEquals(2, actual);
-    }
-
-    @Test
     void checkIf_PayAllMethod_IsFillingCorrectly_withMockito() {
         EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
         when(employeeRepository.findAll())

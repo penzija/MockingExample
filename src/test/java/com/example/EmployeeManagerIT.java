@@ -1,24 +1,19 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import  static org.assertj.core.api.Assertions.assertThat;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EmployeeManagerIT {
+public class EmployeeManagerIT  {
 
-    EmployeeRepository employeeRepository=new EmployeeRepositoryImpl();
     @Test
+    void checkIf_PayAllMethod_IsFillingCorrectly() {
 
-    public void findAllTest(){
+        EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
+        BankService bankService = new BankServiceStub();
+        EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
 
-        List<Employee> employeeList = employeeRepository.findAll();
-        Employee actual = employeeList.get(1);
-        assertThat(actual.getId()).isEqualTo("emp2");
+        int actual = employeeManager.payEmployees();
 
-    }
-    @Test
-    public void saveTest(){
-        Employee expectedValue=new Employee("emp6",10);
-        assertThat(employeeRepository.save(expectedValue).getId()).isEqualTo("emp5");
+        assertEquals(4, actual);
     }
 }

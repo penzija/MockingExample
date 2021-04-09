@@ -5,13 +5,13 @@ import java.util.List;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
-    private static  List<Employee> employees = new ArrayList<>();
+    private final List<Employee> employees = new ArrayList<>();
 
-    static {
-        populateEmployees();
+    public EmployeeRepositoryImpl() {
+        initEmployees();
     }
 
-    private static void populateEmployees() {
+    private void initEmployees() {
         employees.add(new Employee("emp1", 1.0));
         employees.add(new Employee("emp2", 2.0));
         employees.add(new Employee("emp3", 3.0));
@@ -20,7 +20,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public List<Employee> findAll() {
-
         return employees;
     }
 
