@@ -10,6 +10,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         ArrayList<Employee> employees = new ArrayList<>();
         employees.add(new Employee("test", 0));
         employees.add(new Employee("luka", 15000));
+        employees.add(new Employee("empl3", 15000));
         return employees;
     }
 

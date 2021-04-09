@@ -13,11 +13,11 @@ class EmployeeManagerTest {
     @Test
     void checkIf_PayAllMethod_IsFillingCorrectly() {
 
-        EmployeeRepository employeeRepository = new EmployeeRepositoryStub();
-        BankService bankService = new BankServiceStub();
+        EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
+        BankService bankService = new BankServiceImpl();
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
 
-        var actual = employeeManager.payEmployees();
+        int actual = employeeManager.payEmployees();
 
         assertEquals(2, actual);
     }
@@ -30,7 +30,7 @@ class EmployeeManagerTest {
         BankService bankService = mock(BankService.class);
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
 
-        var actual = employeeManager.payEmployees();
+        int actual = employeeManager.payEmployees();
 
         assertEquals(2, actual);
     }
