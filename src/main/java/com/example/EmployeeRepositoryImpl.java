@@ -8,9 +8,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
     public List<Employee> findAll() {
         ArrayList<Employee> employees = new ArrayList<>();
-        employees.add(new Employee("test", 0));
-        employees.add(new Employee("luka", 15000));
-        employees.add(new Employee("empl3", 15000));
+        employees.add(new Employee("emp1", 1.0));
+        employees.add(new Employee("emp2", 2.0));
+        employees.add(new Employee("emp3", 3.0));
+        employees.add(new Employee("emp4", 4.0));
         return employees;
     }
 

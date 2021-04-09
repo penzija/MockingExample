@@ -18,7 +18,7 @@ public class EmployeeRepositoryIT {
         List<Employee> employeeList = employeeRepository.findAll();
         Employee containedValue = employeeList.get(0);
 
-        assertThat(containedValue.getId()).isEqualTo("test");
+        assertThat(containedValue.getId()).isEqualTo("emp1");
     }
 
     @Test
@@ -34,31 +34,8 @@ public class EmployeeRepositoryIT {
         EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
         BankService bankService = new BankServiceImpl();
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
-
         int actual = employeeManager.payEmployees();
 
-        assertEquals(3, actual);
-    }
-
-    @Test
-    public void findAll() {
-        EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
-        List<Employee> employees = employeeRepository.findAll();
-
-        List<Employee> expected = new ArrayList<>();
-        expected.add(new Employee("emp1", 1.0));
-        expected.add(new Employee("emp2", 2.0));
-        expected.add(new Employee("emp3", 3.0));
-        expected.add(new Employee("emp4", 4.0));
-
-        assertIterableEquals(expected, employees);
-    }
-
-    @Test
-    public void save() {
-        EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
-        Employee employee = new Employee("emp1", 2.0);
-        Employee actual = employeeRepository.save(employee);
-        assertEquals(employee, actual);
+        assertEquals(4, actual);
     }
 }

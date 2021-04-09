@@ -19,7 +19,7 @@ class EmployeeManagerTest {
 
         int actual = employeeManager.payEmployees();
 
-        assertEquals(2, actual);
+        assertEquals(4, actual);
     }
 
     @Test
