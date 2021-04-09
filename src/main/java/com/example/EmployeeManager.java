@@ -31,9 +31,9 @@ public class EmployeeManager {
         return payments;
     }
 
-    public static void main(String[] args) {
-        LinkedList mockedList = mock(LinkedList.class);
-        when(mockedList.get(0)).thenReturn("This list does not really exist");
-        System.out.println(mockedList.get(0));
-    }
+//    public static void main(String[] args) {
+//        LinkedList mockedList = mock(LinkedList.class);
+//        when(mockedList.get(0)).thenReturn("This list does not really exist");
+//        System.out.println(mockedList.get(0));
+//    }
 }

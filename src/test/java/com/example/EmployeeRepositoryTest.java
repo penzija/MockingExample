@@ -10,7 +10,7 @@ import java.util.List;
 
 public class EmployeeRepositoryTest {
 
-    private  EmployeeRepository employeeRepository = new EmployeeRepositoryIT();
+    private  EmployeeRepository employeeRepository = new EmployeeRepositoryStub();
 
     @Test
     public void findAll() {

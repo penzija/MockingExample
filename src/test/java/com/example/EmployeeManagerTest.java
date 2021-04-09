@@ -17,7 +17,7 @@ class EmployeeManagerTest {
         BankService bankService = new BankServiceStub();
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
 
-        var actual = employeeManager.payEmployees();
+        int actual = employeeManager.payEmployees();
 
         assertEquals(2, actual);
     }
@@ -30,7 +30,7 @@ class EmployeeManagerTest {
         BankService bankService = mock(BankService.class);
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
 
-        var actual = employeeManager.payEmployees();
+        int actual = employeeManager.payEmployees();
 
         assertEquals(2, actual);
     }
