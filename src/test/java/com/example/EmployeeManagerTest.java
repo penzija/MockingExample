@@ -17,9 +17,12 @@ class EmployeeManagerTest {
         BankService bankService = new BankServiceImpl();
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
 
+        employeeRepository.save(new Employee("test", 10));
+        employeeRepository.save(new Employee("test2", 20));
+
         int actual = employeeManager.payEmployees();
 
-        assertEquals(4, actual);
+        assertEquals(2, actual);
     }
 
     @Test
