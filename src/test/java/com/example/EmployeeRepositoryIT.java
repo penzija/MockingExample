@@ -46,8 +46,10 @@ public class EmployeeRepositoryIT {
         EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
         BankService bankService = new BankServiceImpl();
         EmployeeManager employeeManager = new EmployeeManager(employeeRepository, bankService);
+        employeeRepository.save(new Employee("test", 10));
+
         int actual = employeeManager.payEmployees();
 
-        assertEquals(4, actual);
+        assertEquals(1, actual);
     }
 }
