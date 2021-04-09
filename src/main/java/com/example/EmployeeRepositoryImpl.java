@@ -5,29 +5,18 @@ import java.util.List;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
-    private static  List<Employee> employees = new ArrayList<>();
-
-    static {
-        populateEmployees();
-    }
-
-    private static void populateEmployees() {
-        employees.add(new Employee("emp1", 1.0));
-        employees.add(new Employee("emp2", 2.0));
-        employees.add(new Employee("emp3", 3.0));
-        employees.add(new Employee("emp4", 4.0));
-    }
-
     @Override
     public List<Employee> findAll() {
-
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("test", 0));
+        employees.add(new Employee("luka", 15000));
         return employees;
     }
 
     @Override
     public Employee save(Employee e) {
-        e.setId("emp5");
-        e.setSalary(5);
+        e.setId("id value modified in the method");
+        e.setSalary(100);
         return e;
     }
 }
